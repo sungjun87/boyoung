@@ -36,4 +36,10 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "/dbexam", method = RequestMethod.GET)
+	public String dbexam(String exam) {
+		
+		
+		return "DBexam";
+	}
 }
