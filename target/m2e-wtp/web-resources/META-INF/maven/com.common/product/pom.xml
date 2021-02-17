@@ -9,7 +9,8 @@
 	<version>boyoung</version>
 	<properties>
 		<java-version>1.6</java-version>
-		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
+<!-- 		<org.springframework-version>3.1.1.RELEASE</org.springframework-version> -->
+		<org.springframework-version>4.3.14.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
@@ -18,7 +19,8 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${org.springframework-version}</version>
+ 			<version>${org.springframework-version}</version> 
+<!-- 			<version>4.3.14.RELEASE</version> -->
 			<exclusions>
 				<!-- Exclude Commons Logging in favor of SLF4j -->
 				<exclusion>
@@ -121,15 +123,73 @@
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-jdbc</artifactId>
-		    <version>5.2.10.RELEASE</version>
+		    <version>4.3.14.RELEASE</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-aop</artifactId>
+    <version>4.3.14.RELEASE</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-beans</artifactId>
+    <version>4.3.14.RELEASE</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot</artifactId>
+    <version>1.4.2.RELEASE</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>4.3.4.RELEASE</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>4.3.4.RELEASE</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-expression -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-expression</artifactId>
+    <version>4.3.4.RELEASE</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-tx</artifactId>
+    <version>4.3.4.RELEASE</version>
+</dependency>
+
+
 		
+		
+		
+		
+		
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ucp -->
 		<dependency>
+		    <groupId>com.oracle.database.jdbc</groupId>
+		    <artifactId>ucp</artifactId>
+		    <version>19.7.0.0</version>
+		</dependency>
+<!-- 		<dependency>
 		    <groupId>com.oracle.database.jdbc</groupId>
 		    <artifactId>ojdbc6</artifactId>
 		    <version>11.2.0.4</version>
+		</dependency> -->
+		<dependency>
+		    <groupId>com.oracle.database.jdbc</groupId>
+		    <artifactId>ojdbc8</artifactId>
+		    <version>19.8.0.0</version>
 		</dependency>
-		
 		<dependency>
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis-spring</artifactId>
@@ -138,8 +198,37 @@
 		<dependency>
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis</artifactId>
-		    <version>3.4.6</version>
+		    <version>3.5.6</version>
 		</dependency>
+		<!-- 붙여 넣기 -->
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.security/oraclepki -->
+		<!-- https://mvnrepository.com/artifact/com.oracle.ojdbc/oraclepki -->
+<dependency>
+    <groupId>com.oracle.ojdbc</groupId>
+    <artifactId>oraclepki</artifactId>
+    <version>19.3.0.0</version>
+</dependency>
+		<!-- https://mvnrepository.com/artifact/com.oracle.ojdbc/osdt_core -->
+<dependency>
+    <groupId>com.oracle.ojdbc</groupId>
+    <artifactId>osdt_core</artifactId>
+    <version>19.3.0.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.oracle.ojdbc/osdt_cert -->
+<dependency>
+    <groupId>com.oracle.ojdbc</groupId>
+    <artifactId>osdt_cert</artifactId>
+    <version>19.3.0.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.oracle.ojdbc/ons -->
+<dependency>
+    <groupId>com.oracle.ojdbc</groupId>
+    <artifactId>ons</artifactId>
+    <version>19.3.0.0</version>
+</dependency>
+
+		
+		
 	</dependencies>
     <build>
         <plugins>

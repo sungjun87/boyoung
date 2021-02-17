@@ -13,19 +13,36 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
-	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
-	  <property value="oracle.jdbc.driver.OracleDriver" name="driverClassName" />
-	  <property value="jdbc:oracle:thin:@boyoung_medium?TNS_ADMIN=C:\Users\boyoung87\Downloads\wallet_BOYOUNG" name="url" />
-	  <property value="ADMIN" name="username" />
-	  <property value="Park57618587" name="password" />
+<!-- 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource"> -->
+<!--  	  <property value="oracle.jdbc.driver.OracleDriver" name="driverClassName" />  --> 
+<!-- 	  <property value="oracle.jdbc.pool.OracleDataSource" name="driverClassName" /> -->
+<!-- 	  <property value="jdbc:oracle:thin:@boyoung_medium?TNS_ADMIN=C:\Users\boyoung87\Downloads\wallet_BOYOUNG" name="url" /> -->
+<!-- 	  <property value="ADMIN" name="username" /> -->
+<!-- 	  <property value="Park57618587" name="password" /> -->
+<!--   		<property name="URL" value="oracle.url=jdbc:oracle:thin:@boyoung_high?TNS_ADMIN=C:\Users\boyoung87\Downloads\wallet_BOYOUNG"/>  --> 
+<!-- 	</bean> -->
+
+	<bean id="dataSource" class="oracle.ucp.jdbc.PoolDataSourceImpl">   
+	 <property name="connectionFactoryClassName" value="oracle.jdbc.pool.OracleDataSource" />
+	 <property name="URL" value="oracle.url=jdbc:oracle:thin:@boyoung_medium?TNS_ADMIN=C:\Users\boyoung87\Downloads\wallet_BOYOUNG" />
+	 <property name="user" value="ADMIN" />
+	 <property name="password" value="Park57618587" />
+	 <property name="initialPoolSize" value="50" />
+	 <property name="maxPoolSize" value="15" /> 
 	</bean>
 	
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="SqlSessionFactory">
 	  <property name="dataSource" ref="dataSource" />
-	  <property value="classpath:mybatis-config.xml" name="configLocation" />
+	  <property value="classpath:/mybatis-config.xml" name="configLocation" />
 	  <property value="classpath:/mapper/*Mapper.xml" name="mapperLocations" />
 	</bean>
 	
-<!-- 	<mybatis-spring:scan base-package="com.common.product.mapper" /> -->
+	
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate"> 
+		<constructor-arg index="0" ref="SqlSessionFactory"/> 
+	</bean>
+
+	
+<!-- 	<mybatis-spring:scan base-package="classpat" />  -->
 	
 </beans>
