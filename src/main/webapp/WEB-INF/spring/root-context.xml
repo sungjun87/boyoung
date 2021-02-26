@@ -13,32 +13,43 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
-<!-- 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource"> -->
-<!--  	  <property value="oracle.jdbc.driver.OracleDriver" name="driverClassName" />  --> 
-<!-- 	  <property value="oracle.jdbc.pool.OracleDataSource" name="driverClassName" /> -->
-<!-- 	  <property value="jdbc:oracle:thin:@boyoung_medium?TNS_ADMIN=C:\Users\boyoung87\Downloads\wallet_BOYOUNG" name="url" /> -->
-<!-- 	  <property value="ADMIN" name="username" /> -->
-<!-- 	  <property value="Park57618587" name="password" /> -->
-<!--   		<property name="URL" value="oracle.url=jdbc:oracle:thin:@boyoung_high?TNS_ADMIN=C:\Users\boyoung87\Downloads\wallet_BOYOUNG"/>  --> 
-<!-- 	</bean> -->
 
-	<bean id="dataSource" class="oracle.ucp.jdbc.PoolDataSourceImpl">   
-	 <property name="connectionFactoryClassName" value="oracle.jdbc.pool.OracleDataSource" />
-	 <property name="URL" value="oracle.url=jdbc:oracle:thin:@boyoung_medium?TNS_ADMIN=C:\Users\boyoung87\Downloads\wallet_BOYOUNG" />
-	 <property name="user" value="ADMIN" />
-	 <property name="password" value="Park57618587" />
-	 <property name="initialPoolSize" value="50" />
-	 <property name="maxPoolSize" value="15" /> 
-	</bean>
+
+<!-- 	<bean id="dataSource" class="oracle.ucp.jdbc.PoolDataSourceImpl">    -->
+<!-- 	 <property name="connectionFactoryClassName" value="oracle.jdbc.pool.OracleDataSource" /> -->
+<!-- 	 <property name="URL" value="oracle.url=jdbc:oracle:thin:@boyoung_medium?TNS_ADMIN=C:\Users\boyoung87\Downloads\Wallet_boyoungs" /> -->
+<!-- 	 <property name="user" value="ADMIN" /> -->
+<!-- 	 <property name="password" value="Park57618587" /> -->
+<!-- 	 <property name="initialPoolSize" value="50" /> -->
+<!-- 	 <property name="maxPoolSize" value="15" />  -->
+<!-- 	</bean> -->
 	
+	
+	
+<!-- 	 <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource"> -->
+<!--             <property value="oracle.jdbc.driver.OracleDriver" name="driverClassName" /> -->
+<!--             <property value="jdbc:oracle:thin:@localhost:1521:orcl" name="url" /> -->
+<!--             <property value="system" name="username" /> -->
+<!--             <property value="Park1067" name="password" /> -->
+<!--      </bean>	 -->
+     	 <bean class="oracle.ucp.jdbc.PoolDataSourceImpl" id="dataSource">
+            <property value="oracle.jdbc.pool.OracleDataSource" name="connectionFactoryClassName" />
+<!--             <property name="URL" value="oracle.url=jdbc:oracle:thin:@adb.ap-seoul-1.oraclecloud.com:1522:orcl" /> -->
+       		<property name="URL" value="jdbc:oracle:thin:@boyoung_medium?TNS_ADMIN=C:\\Users\\boyoung87\\Downloads\\admin\\orcl\\xdb_wallet" />
+	        <property name="user" value="ADMIN" />
+	        <property name="password" value="Park57618587" />
+	        <property name="maxPoolSize" value="50" />
+	        <property name="initialPoolSize" value="15" />
+     </bean>	
+     
+     
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="SqlSessionFactory">
 	  <property name="dataSource" ref="dataSource" />
-	  <property value="classpath:/mybatis-config.xml" name="configLocation" />
-	  <property value="classpath:/mapper/*Mapper.xml" name="mapperLocations" />
+	  <property value="classpath:mybatis-config.xml" name="configLocation" />
+	  <property value="classpath:/mappers/*Mapper.xml" name="mapperLocations" />
 	</bean>
 	
-	
-	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate"> 
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache"> 
 		<constructor-arg index="0" ref="SqlSessionFactory"/> 
 	</bean>
 

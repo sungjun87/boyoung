@@ -4,7 +4,7 @@
 
 	<select id="dbexam" resultType="String">
 		select USER_POSITION from exam
-		where USER_NAME = 'name'
+		where USER_NAME = 'name2'
 	</select>
 	
 	<delete id="delexam" parameterType="String">

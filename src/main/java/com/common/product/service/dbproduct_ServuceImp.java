@@ -22,12 +22,12 @@ public class dbproduct_ServuceImp implements dbproduct_Service {
 //		System.out.print(str);
 //		System.out.println(sqlSession.selectOne(namespace+"dbexam"));
 		String str = sqlSession.selectOne(namespace+"dbexam");
-		System.out.println(str);
+		System.out.println("여기 들어온다는거야??");
 //		System.out.println(sqlSession);
 //		SqlSession session = sqlSession.openSession();
 //		System.out.println(sqlSession.selectOne(namespace+"dbexam"));
 		
 //		return sqlSession.selectOne(namespace+"dbexam");
-		return null;
+		return str;
 	}
 }
