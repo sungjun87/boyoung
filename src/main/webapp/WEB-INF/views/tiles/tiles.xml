@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="mainTemplate" template="/WEB-INF/views/tilesView/Main.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/tilesView/header.jsp"/>
+		<put-attribute name="content" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/views/tilesView/footer.jsp"/>
+	</definition>
+
+	<definition name="popUp" template="/WEB-INF/views/tilesView/popUpMain.jsp">
+		<put-attribute name="content" value=""/>
+	</definition>
+	
+	<definition name="*" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp"/>
+	</definition>
+	<definition name="prdouct/*" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/board/{1}.jsp"/>
+	</definition>
+	<definition name="popUp/*" extends="/WEB-INF/views/popUp/{1}.jsp">
+		<put-attribute name="content" value="/WEB-INF/views/popUp/{1}.jsp"/>
+	</definition>
+</tiles-definitions>
