@@ -15,10 +15,10 @@
 	<definition name="*" extends="mainTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp"/>
 	</definition>
-	<definition name="prdouct/*" extends="mainTemplate">
+	<definition name="product/*" extends="mainTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/board/{1}.jsp"/>
 	</definition>
-	<definition name="popUp/*" extends="/WEB-INF/views/popUp/{1}.jsp">
+	<definition name="popUp/*" extends="popUp">
 		<put-attribute name="content" value="/WEB-INF/views/popUp/{1}.jsp"/>
 	</definition>
 </tiles-definitions>

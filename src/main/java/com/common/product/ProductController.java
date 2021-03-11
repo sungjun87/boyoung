@@ -10,10 +10,18 @@ public class ProductController {
 
 	
 	
-	@RequestMapping(value="/productboard",method = RequestMethod.GET)
+	@RequestMapping(value="/proKindReg",method = RequestMethod.GET)
 	public String productview ()throws Exception {
 		System.out.println("여기 타는건 맞지?");
-		return "prdouct/ProKindReg";
+		return "popUp/ProKindReg";
 		
 	}
+	
+	@RequestMapping(value="/productKind" , method = RequestMethod.GET)
+	public String productKind()throws Exception{
+		
+		return "product/ProKindBoard";
+	}
+	
+	
 }

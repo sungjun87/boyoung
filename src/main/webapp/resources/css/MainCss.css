@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+/* .Fixed{ */
+/* 	top:0; */
+/* 	left:0; */
+/* 	right:0; */
+/* } */
+.top_header{
+	height: 60px;
+    background-color: #093687;
+    position: fixed;
+    width: 100%;
+}
+.page-contentinbe{
+	padding-top: 60px;
+}
+.Maintitle{
+	float:left;
+	padding-right: 40px;
+	color:black;
+	font-weight : bold;
+}
+.MainNav li {
+	color: rgba(165,175,202,.6);
+	list-style: none;
+	float: left;
+	padding-right: 50px;
+}
+.MainContent{
+	width: 1400px;
+	margin : 0 auto;
+}
+.MainSection{
+	width: 1400px;
+	margin : 0 auto;
+	box-sizing: border-box;
+	padding-top : 15px;
+}
+.RegBtn{
+	
+}
+
