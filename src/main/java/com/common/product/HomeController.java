@@ -46,7 +46,7 @@ public class HomeController {
 	@RequestMapping(value = "/dbexam", method = RequestMethod.GET)
 	public String dbexam(String exam) throws Exception {
 		
-		System.out.println(service.dbexam());
+//		System.out.println(service.dbexam());
 		
 		return "DBexam";
 	}

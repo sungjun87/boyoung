@@ -36,7 +36,11 @@
 	box-sizing: border-box;
 	padding-top : 15px;
 }
-.RegBtn{
-	
+.NavBtn{
+	float: right;
+    padding: 10px;
 }
-
+.ContentTitle{
+    text-align: center;
+    padding: 30px;
+}

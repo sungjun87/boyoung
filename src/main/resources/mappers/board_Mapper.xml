@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board_Mapper">
+	
+	
+	<insert id="KindReg" parameterType="Map">
+		<selectKey keyProperty="number" resultType="int" order="BEFORE">
+			SELECT PRO_KIND_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO PRODUCT_KIND
+			VALUES('PK'||#{number}
+					,#{PRO_KIND_NAME}
+					<if test="#{PRO_KIND_FORMAT} != null">
+						,#{PRO_KIND_FORMAT}
+					</if>
+					<if test="#{PRO_KIND_POSITION} != null">
+						,#{PRO_KIND_POSITION}
+					</if>
+					<if test="#{PRO_KIND_REFERENCE} != null">
+						,#{PRO_KIND_REFERENCE}
+					</if>
+			)
+	</insert>
+
+	<select id="getKind" resultType="Map" >
+		SELECT * FROM PRODUCT_KIND
+	</select>
+	
+	<delete id="KindDel" parameterType="Map">
+		DELETE FROM PRODUCT_KIND
+		WHERE PRO_KIND_CODE = #{PRO_KIND_CODE}
+	</delete>
+</mapper>
