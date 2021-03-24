@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>상품 종류</title>
 <script type="text/javascript">
+
 	function openPop(){
 		var popupWidth = 400;
 		var popupHeight = 500; 
@@ -14,11 +15,11 @@
 		var popupX = (window.screen.width/2) - (popupWidth/2);
 		var options = "width ="+popupWidth+",height="+popupHeight+",left="+popupX+",top="+popupY;
 		window.open("/proKindReg","종류 등록",options);
-	} 
+	}
 	
 // 	function delKind(){
 // 		alert("호출은 되는거지?");
-// 		$('input[type="checkbox"]:checked').each(function(index){
+// 		$('input[type="checkbox"]:checked').each(function(){
 // 			var params = {
 // 					PRO_KIND_CODE = $(this).val();
 // 			}
@@ -41,6 +42,35 @@
 			
 // 		});
 // 	}
+	function delKind(){
+		var str = null;
+		$('input[type="checkbox"]:checked').each(function(){
+			if(str == null){
+				str = $(this).val();
+			}else{
+				str = str+","+$(this).val();
+			}
+		});	
+		var params = {
+				str_code : str
+		}
+		$.ajax({
+			type : 'POST',
+			url : '/KindDel',
+			data : params,
+			datatype : 'json',
+			async : false,
+			success : function(data){
+				if(data.result > 1){
+					alert("삭제가 완료되었습니다.");
+					window.close();
+				}else{
+					alert("삭제에 실패하였습니다.");
+				}
+			}
+		
+		});
+	}
 </script>
 
 
@@ -58,7 +88,7 @@
 				<input type="button" class="btn btn-primary RegBtn" value="삭제" onclick="delKind()">
 				<input type="button" class="btn btn-primary RegBtn" value="수정" onclick="openPop()">
 			</div>
-			<table class="table table-striped">
+			<table class="table table-striped table-bordered">
 				<thead>
 					<tr>
 						<th></th>
@@ -71,7 +101,7 @@
 				<tbody>
 						<c:forEach var="Kind" items="${ProKind }">
 							<tr>
-								<td><input type="checkbox" value="${Kind.PRO_KIND_CODE }"></td>
+								<td id="BoardCode"><input type="checkbox" value="${Kind.PRO_KIND_CODE }"></td>
 								<td><c:out value="${Kind.PRO_KIND_NAME} "></c:out></td>
 								<td><c:out value="${Kind.PRO_KIND_FORMAT} "></c:out></td>
 								<td><c:out value="${Kind.PRO_KIND_POSITION} "></c:out></td>

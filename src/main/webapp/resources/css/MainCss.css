@@ -27,11 +27,11 @@
 	padding-right: 50px;
 }
 .MainContent{
-	width: 1400px;
+	width: 1700px;
 	margin : 0 auto;
 }
 .MainSection{
-	width: 1400px;
+	width: 1700px;
 	margin : 0 auto;
 	box-sizing: border-box;
 	padding-top : 15px;
@@ -43,4 +43,7 @@
 .ContentTitle{
     text-align: center;
     padding: 30px;
+}
+#BoardCode{
+	text-align: center;
 }

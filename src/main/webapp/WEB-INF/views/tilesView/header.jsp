@@ -14,7 +14,8 @@
 				<nav class="MainNav">
 					<li><a href="/productKind">품목 종류</a></li>
 					<li>품목</li>
-					<li>거래처 정보</li>
+					<li><a href="/AccountBoard">거래처 정보</a></li>
+					<li><a href="/orderDraft">발주서</a></li>
 				</nav>
 			</section>
 		</header>

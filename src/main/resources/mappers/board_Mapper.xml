@@ -26,8 +26,40 @@
 		SELECT * FROM PRODUCT_KIND
 	</select>
 	
-	<delete id="KindDel" parameterType="Map">
+	<delete id="KindDel">
 		DELETE FROM PRODUCT_KIND
-		WHERE PRO_KIND_CODE = #{PRO_KIND_CODE}
+		WHERE PRO_KIND_CODE IN (
+			<foreach collection="array" item="item" index="index" separator=",">
+				${item}
+			</foreach>
+		)
 	</delete>
+	
+	<select id="getAccount" resultType="Map">
+		SELECT * FROM ACCOUNT
+	</select>
+	
+	<insert id="AccountReg" parameterType="Map">
+		<selectKey keyProperty="number" resultType="int" order="BEFORE">
+			SELECT ACCOUNT_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO ACCOUNT
+			VALUES('AC'||#{number}
+					,#{COM_NAME, jdbcType=VARCHAR}
+					,#{COM_ADDR, jdbcType=VARCHAR}
+					,#{COM_MASTER, jdbcType=VARCHAR}
+					,#{COM_REG_NUMBER, jdbcType=VARCHAR}
+					,#{COM_AREA, jdbcType=VARCHAR}
+					,#{COM_NUMBER, jdbcType=VARCHAR}
+					,#{COM_PHNUMBER, jdbcType=VARCHAR}
+					,#{COM_USING_CHECK, jdbcType=VARCHAR}
+					,#{COM_REFERENCE, jdbcType=VARCHAR}
+				)
+		</insert>
+	
+		<delete id="AccountDel" parameterType="Map">
+			DELETE FROM ACCOUNT
+			WHERE COM_CODE = #{COM_CODE}
+		</delete>
+	
 </mapper>
